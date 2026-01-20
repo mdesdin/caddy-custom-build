@@ -27,7 +27,7 @@ RUN apk add --no-cache postgresql-client curl
 RUN addgroup root postgres
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 COPY --from=builder --chmod=755 --chown=root:root /opt/bin/stalwart-cli /opt/bin/stalwart-cli
-RUN curl -L --create-dirs --output /etc/caddy/Caddyfile https://raw.githubusercontent.com/mdesdin/docker-custom-builds/refs/heads/main/caddy/Caddyfile
-RUN curl -L --create-dirs --output /scripts/certaction.sh https://raw.githubusercontent.com/mdesdin/docker-custom-builds/refs/heads/main/caddy/scripts/certaction.sh
+RUN curl -L --create-dirs --output /etc/caddy/Caddyfile https://raw.githubusercontent.com/mdesdin/caddy-custom-build/refs/heads/main/Caddyfile
+RUN curl -L --create-dirs --output /scripts/certaction.sh https://raw.githubusercontent.com/mdesdin/caddy-custom-build/refs/heads/main/scripts/certaction.sh
 RUN chmod +x /scripts/certaction.sh
 RUN apk add --no-cache tzdata
